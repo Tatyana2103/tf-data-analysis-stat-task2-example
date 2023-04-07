@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 
@@ -13,6 +12,5 @@ def solution(p: float, x: np.array) -> tuple:
     # Не меняйте название функции и её аргументы
     alpha = 1 - p
     loc = x.mean()
-    scale = np.sqrt(np.var(x)) / np.sqrt(len(x))
-    return (loc - len(x)/2 + gamma.ppf(x = alpha/2, a = len(x) , loc=0, scale=1))/(len(x)*43*86), \
-           (loc - len(x)/2 + gamma.ppf(x =1- alpha/2, a = len(x) , loc=0, scale=1))/(len(x)*43*86)
+    return (loc -1/2 + gamma.ppf(alpha/2, len(x) , loc=0, scale=1)/(len(x)) ) / (43*86), \
+           (loc - 1/2 + gamma.ppf(1- alpha/2, len(x) , loc=0, scale=1)/(len(x))) / (43*86)
